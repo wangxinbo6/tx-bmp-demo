@@ -1,6 +1,6 @@
 # tx-bmp
 
-> A Vue.js project
+> 刚开始做的小项目  纯练习  主要是vuex的实战训练
 
 ## Build Setup
 
