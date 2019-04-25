@@ -4,7 +4,7 @@
             <ul class="clearfix">
                 <li @click="cctv()">4点击</li>
                 <li>3</li>
-                <li v-if="this.msg=3">权限到了</li>
+                <li v-if="this.msg==true">权限到了</li>
                 <li>{{msg}}</li>
             </ul>
         </div>
@@ -22,7 +22,6 @@ export default {
     methods:{
         cctv(){
             console.log(this.msg);
-            
             console.log(this.$store.state.count);
         }
     }
