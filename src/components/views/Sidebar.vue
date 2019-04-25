@@ -63,3 +63,8 @@
     }
   }
 </script>
+<style>
+.el-submenu .el-menu-item{
+  min-width: 30px;
+}
+</style>

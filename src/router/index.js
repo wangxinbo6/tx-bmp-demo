@@ -24,10 +24,5 @@ export default new Router({
       name:'login',
       component:Login
     },
-    {
-      path:'/dashTwo',
-      name:'dashTwo',
-      component:DashboardTwo
-    }
   ]
 })

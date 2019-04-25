@@ -2,18 +2,30 @@
     <div class="dashboardTwo">
         <div class="row">
             <ul class="clearfix">
-                <li>4</li>
+                <li @click="cctv()">4点击</li>
                 <li>3</li>
-                <li>2</li>
-                <li>1</li>
+                <li v-if="this.msg=3">权限到了</li>
+                <li>{{msg}}</li>
             </ul>
         </div>
         <div></div>
     </div>
 </template>
 <script>
+ import store from '../../comment/switch.js'
 export default {
-    
+    data(){
+        return{
+            msg:this.$store.state.count
+        }
+    },
+    methods:{
+        cctv(){
+            console.log(this.msg);
+            
+            console.log(this.$store.state.count);
+        }
+    }
 }
 </script>
 <style scoped>
@@ -25,6 +37,7 @@ ul li{
     width: 25%;
     height: 300px;
     float: left;
+    cursor: pointer;
 }
 div>div{
     width: 100%;
