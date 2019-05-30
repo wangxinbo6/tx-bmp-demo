@@ -13,11 +13,18 @@
     </div>
 </template>
 <script>
+import store from '../comment/switch.js'
+import vueRouter from '../../router'
+import {mapActions} from "vuex"
 export default {
     data(){
         return{
-            userName:'',
-            passWord:'',
+            userName:'admin',
+            passWord:'admin',
+            loginForm:{
+                userName:'admin',
+                passWord:'admin'
+            }
         }
     },
     methods:{
@@ -25,21 +32,49 @@ export default {
             console.log(a);
         },
         onSubmit(){
-            if(this.userName!=''&&this.passWord!=''){
-                console.log(this.userName+'和'+this.passWord);
+            if(this.userName==this.loginForm.userName&&this.passWord==this.loginForm.passWord){
+                //console.log(this.userName+'和'+this.passWord);
                 this.$options.methods.alerts('成功');
-                return;
+                this.$message({
+                    showClose: true,
+                    message: '登陆成功', 
+                    type: 'success'
+                });
+                store.commit('increment') // 改变权限状态
+                 this.$router.push({
+                    path:'/',
+                })
+                return; 
+            }else if(this.userName==''){
+                this.$message({
+                    showClose: true,
+                    message: '请输入用户名',
+                    type: 'warning'
+                });
+                console.log(this.$message); 
+            }else if(this.passWord==''){
+                this.$message({
+                    showClose: true,
+                    message: '请输入密码',
+                    type: 'warning'
+                });
             }else{
-                alert('请输入用户名密码！！！！');
-                this.$options.methods.alerts('失败');
+                this.$message({
+                    showClose: true,
+                    message: '账户名或密码错误',
+                    type: 'error'
+                });
             }
-        }
+        },
+        ...mapActions([
+            "increment",
+        ])
     }
 }
 </script>
 
 <style>
-    body{
+    .bg{
         height: 100vh;
         background-color: #4e73df;
         background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#4e73df),to(#224abe));

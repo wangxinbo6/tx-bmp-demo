@@ -29,7 +29,7 @@ export default {
       msg: 'hellow xin bo 信息安全双重保障'
     }
   },
-  components:{
+  components:{  //局部注册组件 
     headers,
     sidebar,
     dash
