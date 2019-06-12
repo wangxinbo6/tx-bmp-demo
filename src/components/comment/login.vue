@@ -1,15 +1,19 @@
 <template>
     <div class="bg">
-        <div class="login">
-            <dl :span='20'>
-                <dt>用户登录</dt>
-                <dd><el-input v-model="userName" placeholder="输入用户名"></el-input></dd>
-                <dd><el-input v-model="passWord" placeholder="输入密码" type="password"></el-input></dd>
-                <dd>
-                    <el-button @click='onSubmit()'>登录</el-button>
-                </dd>
-            </dl>
-        </div>
+        <el-form>
+            <div class="login">
+                <dl :span='20'>
+                    <dt>用户登录</dt>
+                    <dd><el-input v-model="userName" placeholder="输入用户名"></el-input></dd>
+                    <dd><el-input v-model="passWord" placeholder="输入密码" type="password"></el-input></dd>
+                    <dd>
+                        <el-col :span='24'>
+                            <el-button :span='24' type="primary" @click='onSubmit()'>登录</el-button>
+                        </el-col>
+                    </dd>
+                </dl>
+            </div>
+        </el-form>
     </div>
 </template>
 <script>
@@ -76,14 +80,43 @@ export default {
 <style>
     .bg{
         height: 100vh;
-        background-color: #4e73df;
-        background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#4e73df),to(#224abe));
-        background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
+        background-color: #2d3a4b;
         background-size: cover;
     }
     .login{
         width: 80%;
         margin: 0 auto;
+    }
+    .bg dd:nth-child(3){
+        margin:20px 0; 
+    }
+    .bg dt{
+        font-size: 26px;
+        color: #eee;
+        margin: 0px auto 40px auto;
+        text-align: center;
+        font-weight: bold;
+    }
+    .bg form{
+        position: relative;
+        width: 520px;
+        max-width: 100%;
+        padding: 160px 35px 0;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .bg input.el-input__inner{
+        background-color: #283443;
+        border: 1px solid #3E4956;
+        color: #fff;
+    }
+    .bg button{
+        width: 100%;
+    }
+    @media (max-width: 991.98px) { 
+        .bg form{
+            width: auto;
+        }
     }
 </style>
 
