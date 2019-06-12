@@ -34,7 +34,6 @@
             store.commit('increment') //2.官方文档使用方法（但还无法实现存储，刷新后会消失，这是否是vuex的特性？待考察）
             if(this.value2){
                 this.bgc2='aqua';
-                
                 return;
             }else{
                 this.bgc2='blue';
@@ -43,7 +42,7 @@
             console.log(this);
             console.log(this.$store.state);
         },
-        //1.不可缺 映射组件方法
+        //1.不可缺 映射组件方法.
         ...mapActions([
              "increment",
         ])

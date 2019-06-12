@@ -8,11 +8,14 @@ import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import store from './components/comment/switch'
+import Mock from 'mockjs'
+import axios from 'axios'
+Vue.prototype.$http=axios
 
 Vue.use(ElementUI) 
 Vue.use(Vuex) 
+Vue.use(Mock) 
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
